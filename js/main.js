@@ -17,48 +17,48 @@ var cards = [
   {
     rank: "king",
     suit: "diamonds",
-    cardImage: "images/queen-of-diamonds.png"
+    cardImage: "images/king-of-diamonds.png"
   }
 ];
 
 var cardsInPlay = [];
 
 var checkForMatch = function() {
-	this.setAttribute("src", cards[cardId].cardImage);
-  	if(cardsInPlay.length === 2)
+    if(cardsInPlay.length === 2) {
     if (cardsInPlay[0] === cardsInPlay[1]) {
-	alert("You found a match!");
-	}else{
-	alert("Please try again.");
-	}
+  alert("You found a match!");
+    }else{
+  alert("Please try again.");
+  }
 }
+};
 
 var flipCard = function(){
- 	var cardId = this.getAttribute("data-id");
+  console.log ("FLIPCARD");
+  var cardId = this.getAttribute("data-id");
     cardsInPlay.push(cards[cardId].rank);
     console.log(cards[cardId].suit);
     console.log(cards[cardId].cardImage);
-  	console.log("User flipped " + cards[cardId].rank);
-  	cardElement.setAttribute("src", card[cardId].Image);
-	
-	checkForMatch();
-}
+    console.log("User flipped " + cards[cardId].rank);
+    this.setAttribute("src", cards[cardId].cardImage);
+  console.log(cardsInPlay);
+  checkForMatch();
+};
+
+/*var reset = flipCard() {
+  document.getElementById("game-board").reset(); */
 
 var createBoard = function() {
-  	for (var i = 0; i < cards[i].length; i++) {
- 	var cardElement = document.createElement("img");
-	cardElement.setAttribute("src", "images/back.png");
-	cardElement.setAttribute("data-id", i);
-	cardElement.addEventListener("click", flipCard);
-	cardElement.getElementById("game-board").appendChild("img");
-	}		
-}
+    console.log("testing");
+    for (var i = 0; i < cards.length; i++) {
+      console.log(cards[i]);
+  var cardElement = document.createElement("img");
+      console.log(cardElement);
+      cardElement.setAttribute("src", "images/back.png");
+      cardElement.setAttribute("data-id", i);
+      cardElement.addEventListener("click", flipCard);
+      document.getElementById("game-board").appendChild(cardElement);
+  }   
+};
 createBoard();
-
-
-
-
-
-
-
 
